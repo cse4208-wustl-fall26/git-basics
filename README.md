@@ -129,7 +129,6 @@ Record your answers in `ANSWERS.md` as you work. Number your responses so they a
 
    In your answers, show:
 
-   - the command(s) you used to edit `notes.txt`
    - the output of `git diff notes.txt`
    - the output of `git diff` (no file argument)
    - a brief explanation, in your own words, of what `git diff` shows you when run with no arguments versus when run with a specific filename, based on what you just observed
