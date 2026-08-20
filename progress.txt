@@ -1,0 +1,4 @@
+Progress
+========
+
+Use this file to track your progress through the studio.
