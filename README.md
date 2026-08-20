@@ -1,11 +1,12 @@
-# Git Fundamentals Studio
+# Studio N
 
-## Overview
-In this studio, you will practice basic git commands that you will use this semester: cloning a repository, deciding which files git should and should not track, inspecting changes you have made, undoing changes you did not mean to make, and staging, committing, and pushing your work.
+## Git Fundamentals
+
+In this studio, you will practice the core git workflow you will use throughout the course: cloning a repository, deciding which files git should and should not track, inspecting changes you have made, undoing changes you did not mean to make, and staging, committing, and pushing your work.
 
 ## Collaboration
 
-You may complete this studio individually or in a small group of up to 3 students.
+You may complete this studio individually or in a small group.
 
 ## Environment Setup
 
@@ -112,16 +113,26 @@ Record your answers in `ANSWERS.md` as you work. Number your responses so they a
    echo "Adding a note about today's studio." >> notes.txt
    ```
 
-   View exactly what changed in the tracked file since the last commit, without staging anything first:
+   View exactly what changed in that one tracked file since the last commit, without staging anything first:
+
+   ```
+   git diff notes.txt
+   ```
+
+   Now run `git diff` with no file argument:
 
    ```
    git diff
    ```
 
+   Since you have also been editing `ANSWERS.md` as you go, this second command will likely show changes to `ANSWERS.md` in addition to `notes.txt`.
+
    In your answers, show:
 
-   - the command(s) you used to edit the file
-   - the `git diff` output it produced
+   - the command(s) you used to edit `notes.txt`
+   - the output of `git diff notes.txt`
+   - the output of `git diff` (no file argument)
+   - a brief explanation, in your own words, of what `git diff` shows you when run with no arguments versus when run with a specific filename, based on what you just observed
 
 4. Without staging the change from Exercise 3, discard it and restore `notes.txt` to its last committed state:
 
