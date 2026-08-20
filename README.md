@@ -4,6 +4,8 @@
 
 In this studio, you will practice the core git workflow you will use throughout the course: cloning a repository, deciding which files git should and should not track, inspecting changes you have made, undoing changes you did not mean to make, and staging, committing, and pushing your work.
 
+As you go, you'll build up `ANSWERS.md` into a quick-reference sheet of git commands you can print out and keep next to your keyboard.
+
 ## Collaboration
 
 You may complete this studio individually or in a small group.
@@ -56,7 +58,7 @@ git config --global user.email "your_email@example.com"
 
 ## Exercises
 
-Record your answers in `ANSWERS.md` as you work. Number your responses so they are easy to match to the exercises.
+For each exercise below, run the commands shown, then fill in the matching entry in `ANSWERS.md`. Rather than pasting raw terminal output, write a short explanation **in your own words** of what the command does and what you observed. Treat `ANSWERS.md` as a reference sheet you're building for yourself — write it the way you'd want to read it later.
 
 1. Clone your `studioN` repo and change into the cloned directory:
 
@@ -71,10 +73,7 @@ Record your answers in `ANSWERS.md` as you work. Number your responses so they a
    git status
    ```
 
-   In your answers, show:
-
-   - the command you used to clone the repo
-   - the output of `git status` immediately after cloning
+   In `ANSWERS.md`, explain what `git status` told you about the state of the repo immediately after cloning, and what a "clean" status means.
 
 2. List all files in the repo, including hidden ones, and view the contents of `.gitignore`:
 
@@ -96,16 +95,7 @@ Record your answers in `ANSWERS.md` as you work. Number your responses so they a
    git status
    ```
 
-   In your answers:
-
-   - show the `git status` output and explain why one new file appears in it and the other does not
-   - add one more pattern of your own to `.gitignore` that would exclude a type of file you expect to generate later in the course (for example, `*.o` or `*.swp`). You can append it directly from the command line:
-
-     ```
-     echo "*.o" >> .gitignore
-     ```
-
-     Show the line you added and confirm with `cat .gitignore`.
+   In `ANSWERS.md`, explain in your own words what `.gitignore` is for, and why `build.log` and `important.txt` were treated differently by `git status`.
 
 3. Open `notes.txt` in a text editor (or append to it from the command line) and add two or three sentences to it:
 
@@ -125,13 +115,9 @@ Record your answers in `ANSWERS.md` as you work. Number your responses so they a
    git diff
    ```
 
-   Since you have also been editing `ANSWERS.md` as you go, this second command will likely show changes to `ANSWERS.md` in addition to `notes.txt`.
+   Since you have also been editing `ANSWERS.md` as you go, this second command will likely also show changes to `ANSWERS.md`.
 
-   In your answers, show:
-
-   - the output of `git diff notes.txt`
-   - the output of `git diff` (no file argument)
-   - a brief explanation, in your own words, of what `git diff` shows you when run with no arguments versus when run with a specific filename, based on what you just observed
+   In `ANSWERS.md`, explain what `git diff` shows you in general, and the difference between running it with a filename versus with no argument at all, based on what you just observed.
 
 4. Without staging the change from Exercise 3, discard it and restore `notes.txt` to its last committed state:
 
@@ -148,12 +134,7 @@ Record your answers in `ANSWERS.md` as you work. Number your responses so they a
    git diff notes.txt
    ```
 
-   In your answers:
-
-   - show the command you used to discard the change
-   - show the `git status` output, and point out that `notes.txt` is no longer listed as modified — even though other files (like `important.txt`, `.gitignore`, and `ANSWERS.md`) still show up as changed or untracked
-   - show the `git diff notes.txt` output confirming there is no longer any diff for that file
-   - briefly explain, in your own words, why this command is dangerous to run without checking `git status` or `git diff` first
+   In `ANSWERS.md`, explain what `git restore <file>` does, and why it's risky to run without checking `git status` or `git diff` first.
 
 5. Add the same two or three sentences to `notes.txt` again:
 
@@ -179,11 +160,7 @@ Record your answers in `ANSWERS.md` as you work. Number your responses so they a
    git commit -m "Add reflection notes from git studio exercise 5"
    ```
 
-   In your answers, show:
-
-   - the `git add` command you used
-   - the `git status` output showing the change staged
-   - the `git commit` command and message you used
+   In `ANSWERS.md`, explain what `git add` and `git commit` each do, and what makes a commit message "meaningful" rather than generic.
 
 6. Make a small edit to a different tracked file in the repo (for example, `progress.txt`) and stage it:
 
@@ -212,10 +189,7 @@ Record your answers in `ANSWERS.md` as you work. Number your responses so they a
    git status
    ```
 
-   In your answers:
-
-   - show both `git status` outputs — the one taken while the change was staged, and the one taken after unstaging
-   - explain the difference between the working directory, the staging area, and a commit, based on what you just observed
+   In `ANSWERS.md`, explain the difference between the working directory, the staging area, and a commit, based on what you just observed.
 
 7. Stage and commit the change from Exercise 6 with a meaningful message:
 
@@ -230,10 +204,7 @@ Record your answers in `ANSWERS.md` as you work. Number your responses so they a
    git log --oneline
    ```
 
-   In your answers, show:
-
-   - the log command you used
-   - the resulting output, which should include at least the two commits you made in Exercises 5 and 7
+   In `ANSWERS.md`, explain what `git log --oneline` shows you and why it's useful, referencing what you saw for your own commit history.
 
 8. Suppose you decide the commit from Exercise 7 should not have been made, but you want to preserve history rather than rewrite it. First find the commit hash from your `git log --oneline` output, then create a new commit that undoes the changes introduced by that commit:
 
@@ -250,10 +221,7 @@ Record your answers in `ANSWERS.md` as you work. Number your responses so they a
    git log --oneline
    ```
 
-   In your answers:
-
-   - show the command(s) you used and the resulting output
-   - explain briefly, based on the `git log --oneline` output, what `git revert` actually did — did it remove the Exercise 7 commit from history, or add a new commit on top of it? — and why that behavior makes `git revert` safer to use than editing or removing commits directly when working on a shared repo
+   In `ANSWERS.md`, explain what `git revert` does, based on how your `git log --oneline` output changed — did it remove the Exercise 7 commit from history, or add a new commit on top of it? — and why that behavior makes `git revert` safer to use than editing or removing commits directly when working on a shared repo.
 
 9. Before pushing, check what else is still uncommitted — this should include your `.gitignore` changes from Exercise 2 and the `important.txt` file you created:
 
@@ -265,7 +233,7 @@ Record your answers in `ANSWERS.md` as you work. Number your responses so they a
 
    ```
    git add .gitignore important.txt
-   git commit -m "Add gitignore pattern and tracked test file"
+   git commit -m "Add tracked test file"
    ```
 
    Now push all of your commits to the remote repository:
@@ -281,12 +249,7 @@ Record your answers in `ANSWERS.md` as you work. Number your responses so they a
    git status
    ```
 
-   (`git status` should report that your branch is up to date with the remote after fetching, aside from `ANSWERS.md`, which you'll commit last.) In your answers, show:
-
-   - the `git status` output showing what was left uncommitted before this step
-   - the `git add` and `git commit` commands you used
-   - the command you used to push
-   - the commands and output you used to confirm the push succeeded
+   In `ANSWERS.md`, explain what `git push` and `git fetch` each do, and how you could tell from `git status` that your push succeeded.
 
 ## Deliverables
 

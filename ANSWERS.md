@@ -1,37 +1,77 @@
-# Studio N Answers
+# Git Quick Reference
 
-## 1. Clone the repo
+Fill this in as you work through the studio. Write each explanation in your
+own words — this is meant to be something you can print and keep as a
+reference later, not a transcript of your terminal.
 
--
+## Exercise 1 — Cloning a repo
 
-## 2. .gitignore
+**Command(s):** `git clone <url>`, `git status`
 
--
-
-## 3. View changes
-
--
-
-## 4. Undo before staging
+**Explanation:**
 
 -
 
-## 5. Stage and commit
+## Exercise 2 — Ignoring files
+
+**Command(s):** `.gitignore`, `git status`
+
+**Explanation:**
 
 -
 
-## 6. Unstage a change
+## Exercise 3 — Viewing changes
+
+**Command(s):** `git diff <file>`, `git diff`
+
+**Explanation:**
 
 -
 
-## 7. Commit and view log
+## Exercise 4 — Undoing changes before staging
+
+**Command(s):** `git restore <file>`
+
+**Explanation:**
 
 -
 
-## 8. Revert a commit
+## Exercise 5 — Staging and committing
+
+**Command(s):** `git add <file>`, `git commit -m "<message>"`
+
+**Explanation:**
 
 -
 
-## 9. Push
+## Exercise 6 — Unstaging a change
+
+**Command(s):** `git restore --staged <file>`
+
+**Explanation:**
+
+-
+
+## Exercise 7 — Viewing history
+
+**Command(s):** `git log --oneline`
+
+**Explanation:**
+
+-
+
+## Exercise 8 — Undoing a commit safely
+
+**Command(s):** `git revert <commit-hash>`
+
+**Explanation:**
+
+-
+
+## Exercise 9 — Pushing and syncing
+
+**Command(s):** `git push`, `git fetch`
+
+**Explanation:**
 
 -
