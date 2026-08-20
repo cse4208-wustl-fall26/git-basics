@@ -145,13 +145,14 @@ Record your answers in `ANSWERS.md` as you work. Number your responses so they a
 
    ```
    git status
-   git diff
+   git diff notes.txt
    ```
 
    In your answers:
 
    - show the command you used to discard the change
-   - show the `git status` output confirming the working directory is clean
+   - show the `git status` output, and point out that `notes.txt` is no longer listed as modified — even though other files (like `important.txt`, `.gitignore`, and `ANSWERS.md`) still show up as changed or untracked
+   - show the `git diff notes.txt` output confirming there is no longer any diff for that file
    - briefly explain, in your own words, why this command is dangerous to run without checking `git status` or `git diff` first
 
 5. Add the same two or three sentences to `notes.txt` again:
@@ -191,6 +192,12 @@ Record your answers in `ANSWERS.md` as you work. Number your responses so they a
    git add progress.txt
    ```
 
+   Check status now, while the change is staged:
+
+   ```
+   git status
+   ```
+
    Before committing, decide you are not ready to commit it after all, and remove it from the staging area *without* discarding the edit from the working directory:
 
    ```
@@ -199,7 +206,7 @@ Record your answers in `ANSWERS.md` as you work. Number your responses so they a
 
    (On older git versions: `git reset HEAD progress.txt`)
 
-   Check status before and after unstaging:
+   Check status again, now that the change has been unstaged:
 
    ```
    git status
@@ -207,7 +214,7 @@ Record your answers in `ANSWERS.md` as you work. Number your responses so they a
 
    In your answers:
 
-   - show both `git status` outputs (staged, then unstaged)
+   - show both `git status` outputs — the one taken while the change was staged, and the one taken after unstaging
    - explain the difference between the working directory, the staging area, and a commit, based on what you just observed
 
 7. Stage and commit the change from Exercise 6 with a meaningful message:
@@ -246,9 +253,22 @@ Record your answers in `ANSWERS.md` as you work. Number your responses so they a
    In your answers:
 
    - show the command(s) you used and the resulting output
-   - explain briefly how `git revert` differs from `git reset <commit-hash>`, and why you might prefer one over the other when working on a shared repo
+   - explain briefly, based on the `git log --oneline` output, what `git revert` actually did — did it remove the Exercise 7 commit from history, or add a new commit on top of it? — and why that behavior makes `git revert` safer to use than editing or removing commits directly when working on a shared repo
 
-9. Push your commits to the remote repository:
+9. Before pushing, check what else is still uncommitted — this should include your `.gitignore` changes from Exercise 2 and the `important.txt` file you created:
+
+   ```
+   git status
+   ```
+
+   Stage and commit those with a meaningful message. Leave `ANSWERS.md` out of this commit — you're still writing into it, including your answers to this very exercise, so you'll commit and push it separately as your last step (see Deliverables below):
+
+   ```
+   git add .gitignore important.txt
+   git commit -m "Add gitignore pattern and tracked test file"
+   ```
+
+   Now push all of your commits to the remote repository:
 
    ```
    git push
@@ -261,11 +281,21 @@ Record your answers in `ANSWERS.md` as you work. Number your responses so they a
    git status
    ```
 
-   (`git status` should report that your branch is up to date with the remote after fetching.) In your answers, show:
+   (`git status` should report that your branch is up to date with the remote after fetching, aside from `ANSWERS.md`, which you'll commit last.) In your answers, show:
 
+   - the `git status` output showing what was left uncommitted before this step
+   - the `git add` and `git commit` commands you used
    - the command you used to push
    - the commands and output you used to confirm the push succeeded
 
 ## Deliverables
+
+Once you've finished writing all of your answers, including your answers to Exercise 9 itself, stage, commit, and push `ANSWERS.md` one last time:
+
+```
+git add ANSWERS.md
+git commit -m "Add final studio answers"
+git push
+```
 
 Commit and push all modified and added files, including `ANSWERS.md`, to the repo.
