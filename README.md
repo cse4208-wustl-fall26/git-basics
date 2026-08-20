@@ -1,10 +1,11 @@
-## Git Fundamentals Studio
+# Git Fundamentals Studio
 
+## Overview
 In this studio, you will practice the core git workflow you will use throughout the course: cloning a repository, deciding which files git should and should not track, inspecting changes you have made, undoing changes you did not mean to make, and staging, committing, and pushing your work.
 
 ## Collaboration
 
-You may complete this studio individually or in a small group.
+You may complete this studio individually or in a small group of up to 3 students.
 
 ## Environment Setup
 
